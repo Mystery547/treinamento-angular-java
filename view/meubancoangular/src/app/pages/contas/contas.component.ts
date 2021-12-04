@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IContas } from 'src/app/interfaces/contas';
+import { ContasService } from 'src/app/services/contas.service';
 
 @Component({
   selector: 'app-contas',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContasComponent implements OnInit {
 
-  constructor() { }
+  contas:IContas[] = [];
+  constructor(private contasService: ContasService) { }
 
   ngOnInit(): void {
+    this.listarTodasContas();
+  }
+
+  listarTodasContas() {
+    this.contasService.listarTodasContas().subscribe(contasApi => {
+      this.contas = contasApi;
+    });
   }
 
 }
