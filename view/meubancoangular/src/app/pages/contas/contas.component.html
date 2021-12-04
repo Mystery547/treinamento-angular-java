@@ -2,17 +2,17 @@
 <table class="table table-dark">
   <thead>
     <tr>
-      <th scope="col">Cliente</th>
-      <th scope="col">Conta</th>
       <th scope="col">Agência</th>
+      <th scope="col">Conta</th>
+      <th scope="col">Cliente</th>
       <th scope="col">Saldo</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let conta of contas">
-      <td>{{conta.cliente.nome}}</td>
-      <td>{{conta.numero}}</td>
       <td>{{conta.agencia}}</td>
+      <td>{{conta.numero}}</td>
+      <td>{{conta.cliente.nome}}</td>
       <td>{{conta.saldo | currency: 'BRL'}}</td>
     </tr>
 
